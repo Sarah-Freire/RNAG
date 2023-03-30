@@ -181,7 +181,7 @@ def selecao_torneio_min(populacao, fitness, tamanho_torneio = 3):
     
     Args:
         populacao: população do problema
-        fun_objectivo: função objetivo
+        fitness:
         tamanho_torneio: quantidade de individuos que competem entre si.
 
     Return:
