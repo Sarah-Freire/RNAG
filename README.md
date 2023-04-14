@@ -1,16 +1,8 @@
-# Template para a disciplina de Redes Neurais e Algoritmos Genéticos
+# Redes Neurais e Algoritmos Genéticos
+## Boas-vindas!  &#x1F604;
+Bem-vindo ao meu repositório no GitHub para disciplina de "Redes Neurais e Algoritmos Genéticos" do 3° semestre do Bacherelado em Ciência e Tecnologia da Ilum Escola de Ciência, faculdade parte do Centro Nacional de Pesquisa em Energia e Materiais(CNPEM), ministrada pelo Profº Drº Daniel Cassar. sobre algoritmos genéticos e problemas de otimização!
 
-Use este template como base para organizar seus experimentos na disciplina de Redes Neurais e Algoritmos Genéticos. 
+## Para onde devo seguir? &#x1F914;
+A principal pasta e onde estão os arquivos contendo os códigos desenvolvidos até o momento chama-se `AlgoritmosGeneticos`.
 
-Lembretes:
-
-+ Cada notebook deve ter apenas um experimento
-+ Jamais faça importações utilizando o asterisco. Use espaços de nome ou importe apenas o que for usar no seu experimento
-+ Códigos bem formatados são recomendados. Sugestão: use o formatador black. Ele tem uma versão online disponível em https://black.vercel.app
-+ Sempre use nomes claros e representativos para suas funções, classes, métodos e variáveis
-+ Sempre escreva uma docstring nas suas funções, classes e métodos
-+ Funções simples podem ter doscrings em uma linha. As demais funções devem ter docstrings completas
-+ Comente seu código sempre que julgar necessário, principalmente quando o que estiver sendo executado não for trivial
-+ Todos os notebooks devem funcionar corretamente seguindo a ordem de cima para baixo. Evite rodar células fora da ordem para evitar problemas de continuidade no seu experimento (reordene as células caso seja necessário)
-+ Certifique-se que todas as células do seus notebooks foram executadas! Afinal, como você vai realizar seu experimento sem executar as células?
-+ Reescreva os README do seu repositório para guiar o leitor
+Por lá você encontrará implementações de algoritmos genéticos para resolver problemas de otimização, juntamente com exemplos e explicações de como cada algoritmo funciona. Espero que isso ajude você a entender melhor essa área fascinante da ciência de dados e a aplicá-la em seus próprios projetos. Boas sinapses!&#x1F9E0;
