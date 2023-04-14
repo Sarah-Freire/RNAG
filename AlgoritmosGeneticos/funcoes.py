@@ -63,8 +63,6 @@ def computa_mochila(individuo, objetos, ordem_dos_nomes):
       valor_total: valor total dos itens da mochila em unidades de dinheiros.
       peso_total: peso total dos itens da mochila em unidades de massa.
     """
-
-    "vamos preencher aqui"
     
     valor_total = 0
     peso_total = 0
