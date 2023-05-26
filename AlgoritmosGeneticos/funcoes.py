@@ -29,6 +29,25 @@ def distancia_entre_dois_pontos(a, b):
 
     return dist
 
+def distancia_entre_dois_pontos_em_tres_coordenadas(a, b):
+    """Computa a distância Euclidiana entre dois pontos em R³
+    Args:
+      a: lista contendo as coordenadas x, y e z de um ponto.
+      b: lista contendo as coordenadas x, y e z de um ponto.
+    Returns:
+      Distância entre as coordenadas dos pontos `a` e `b`.
+    """
+
+    x1 = a[0]
+    x2 = b[0]
+    y1 = a[1]
+    y2 = b[1]
+    z1 = a[2]
+    z2 = b[2]
+
+    dist = ((x1 - x2) ** 2 + (y1 - y2) ** 2 + (z1 - z2)**2) ** (1 / 2)
+
+    return dist
 
 
 def cria_cidades(n):
@@ -47,6 +66,23 @@ def cria_cidades(n):
         cidades[f"Cidade {i}"] = (random.random(), random.random())
 
     return cidades
+
+def cria_estacoes_espaciais(n):
+    """Cria um dicionário aleatório de estações espaciais com suas posições (x,y,z).
+    Args:
+      n: inteiro positivo
+        Número de estações que serão visitadas pelo caixeiro.
+    Returns:
+      Dicionário contendo o nome das estações como chaves e a coordenada no plano
+      cartesiano das cidades como valores.
+    """
+
+    estacoes = {}
+
+    for i in range(n):
+        estacoes[f"Estação {i}"] = (random.random(), random.random(), random.random())
+
+    return estacoes
 
 # NOVIDADE
 def computa_mochila(individuo, objetos, ordem_dos_nomes):
@@ -526,6 +562,40 @@ def funcao_objetivo_cv(individuo, cidades):
 
     return distancia
 
+def funcao_objetivo_cv_astronauta(individuo, cidades):
+    """Computa a funcao objetivo de um individuo no problema do caixeiro viajante astronauta.
+    Args:
+      individiuo:
+        Lista contendo a ordem das estações que serão visitadas
+      cidades:
+        Dicionário onde as chaves são os nomes das estações e os valores são as
+        coordenadas das estações.
+    Returns:
+      A distância percorrida pelo caixeiro seguindo o caminho contido no
+      `individuo`. Lembrando que após percorrer todas as estações em ordem, o
+      caixeiro retorna para a cidade original de onde começou sua viagem.
+    """
+
+    distancia = 0
+
+    for posicao in range(len(individuo)-1):
+        
+        partida = cidades[individuo[posicao]]
+        chegada = cidades[individuo[posicao + 1]]
+        
+        percurso = distancia_entre_dois_pontos_em_tres_coordenadas(partida, chegada)
+        distancia = distancia + percurso 
+        
+    # Calculando o caminho de volta para a cidade inicial
+    partida = cidades[individuo[-1]]
+    chegada = cidades[individuo[0]]
+    
+    percurso = distancia_entre_dois_pontos_em_tres_coordenadas(partida, chegada)
+    distancia = distancia + percurso
+
+    return distancia
+
+
 # NOVIDADE
 def funcao_objetivo_mochila(individuo, objetos, limite, ordem_dos_nomes):
     """Computa a funcao objetivo de um candidato no problema da mochila.
@@ -623,6 +693,25 @@ def funcao_objetivo_pop_cv(populacao, cidades):
     resultado = []
     for individuo in populacao:
         resultado.append(funcao_objetivo_cv(individuo, cidades))
+
+    return resultado
+
+def funcao_objetivo_pop_cv_astronauta(populacao, cidades):
+    """Computa a funcao objetivo de uma população no problema do caixeiro viajante astronauta.
+    Args:
+      populacao:
+        Lista com todos os inviduos da população
+      cidades:
+        Dicionário onde as chaves são os nomes das estações e os valores são as
+        coordenadas das estações.
+    Returns:
+      Lista contendo a distância percorrida pelo caixeiro para todos os
+      indivíduos da população.
+    """
+
+    resultado = []
+    for individuo in populacao:
+        resultado.append(funcao_objetivo_cv_astronauta(individuo, cidades))
 
     return resultado
 
